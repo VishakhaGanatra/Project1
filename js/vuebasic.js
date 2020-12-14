@@ -7,7 +7,7 @@ Vue.createApp({
             //vue-blind 
             vuelink:'https://vuejs.org/',
             counter : 10,
-            name:'',
+            name:'', 
             confirmname:''
 
         };
