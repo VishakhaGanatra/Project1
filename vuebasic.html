@@ -12,11 +12,35 @@
         <div id="app">
             <div> 
                 <h2>Vue Basic</h2>
-                <p>{{ course }}</p>
+                <p>{{ courseA }}</p>
                 <!-- .................v-bind ....................-->
                 <!-- {{}} use b/w opening and closing tag only ..
                 we if have another tag like <a> inside this then use v-bind -->
                 <p><a v-bind:href="vuelink">click me</a></p>
+                <!--  v-html  -->
+                <p v-html="output()"></p>
+                <!--    v-on      -->
+                <h2>V-on</h2>
+                <button v-on:click="add(5)">ADD</button><!-- counter++ -->
+                <button v-on:click="reduce(5)">REDUCE</button><!-- counter-- -->
+                <!-- when we dont want to chnage value or we want fix value use v-once -->
+                <p v-once>starting counter : {{ counter }}</p>
+                <p>Result: {{ counter }}</p>
+                <!--   event modifiers   prevent,stop.. -->
+                <form v-on:submit.prevent="submitform">
+                <input type="text">
+                <button>Sign up</button>
+                </form>
+                <!--  when we press enter then name will be locketed into confirmname ...event modifire - keyup..-->
+                <input type="text" v-on:input ="setName" v-on:keyup.enter="confirmoutput">
+                <p>your name:{{ confirmname}}</p>
+
+                <!--         v-model = v-on:input + v-bind:value     //listen and store       -->
+                <input type="text" v-model="name">
+                <button v-on:click="resetInput">Reset</button>
+                <p>Your name: {{ fullname }}</p>
+                <!-- computed-->
+        
             </div>
             
 
