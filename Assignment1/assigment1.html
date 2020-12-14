@@ -12,11 +12,16 @@
         <div id="app">
             <div> 
                 <section id="assignment">
-                    <h2>Assignment 2</h2>
+                    <h2>Assignment 1</h2>
+                    <!--  it will give us written name -->
                     <h3>{{ name }}</h3><br><br>
+                    <!-- it will give us written age -->
                     <h3>{{ age }}</h3><br><br>
+                    <!-- this func calculate this age +5-->
                     <h3>{{ calculateAge() }}</h3><br><br>
+                    <!-- this will give us random number b/w 0 to 1-->
                     <h3>fav number is: {{ randomNumber() }}</h3><br>
+                    <!-- show img -->
                     <img v-bind:src="imgURL"/><br>
                     <input type="text" v-bind:value="name">
                 </section>
