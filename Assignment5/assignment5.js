@@ -1,0 +1,19 @@
+Vue.createApp({
+    data(){
+        return{
+            entervalue:'',
+            goals:[],
+            visible:true
+        };
+    },
+    methods:{
+        addgoal(){
+            this.goals.push(this.entervalue);
+            entervalue=''
+        },
+        showhide(){
+            this.visible=!this.visible;
+        }
+
+    }
+}).mount('#app');
