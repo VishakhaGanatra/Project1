@@ -1,12 +1,12 @@
 <template>
   <form>
-    <h1>Personal Details</h1>
     <div class="form-control" :class="{ invalid: !formData.firstName.isValid }">
       <label for="FirstName">FirstName</label>
       <input
         type="text"
         id="FirstName"
         v-model.trim="formData.firstName.val"
+        @blur="clearValidity('firstName')"
       />
       <p v-if="!formData.firstName.isValid">FirstName must not be empty..</p>
     </div>
@@ -16,6 +16,7 @@
         type="text"
         id="lastName"
         v-model.trim="formData.lastName.val"
+        @blur="clearValidity('lastName')"
       />
       <p v-if="!formData.lastName.isValid">lastName must not be empty..</p>
     </div>
@@ -28,41 +29,46 @@
         id="description"
         rows="5"
         v-model.trim="formData.description.val"
+        @blur="clearValidity('description')"
       ></textarea>
       <p v-if="!formData.description.isValid">
         description must not be empty..
       </p>
     </div>
+
     <div class="form-control" :class="{ invalid: !formData.areas.isValid }">
-      <h3>Area of Expertise</h3>
+      <h3>Hobbies</h3>
       <div>
         <input
           type="checkbox"
-          id="frontend"
-          value="frontend"
+          id="dancing"
+          value="dancing"
           v-model="formData.areas.val"
+          @blur="clearValidity('areas')"
         />
-        <label for="frontend">Frontend </label>
+        <label for="dancing">Dancing </label>
       </div>
 
       <div>
         <input
           type="checkbox"
-          id="backend"
-          value="backend"
+          id="singing"
+          value="singing"
           v-model="formData.areas.val"
+          @blur="clearValidity('areas')"
         />
-        <label for="backend">Backend Devlopment</label>
+        <label for="singing">Singing </label>
       </div>
 
       <div>
         <input
           type="checkbox"
-          id="career"
-          value="career"
+          id="reading"
+          value="reading"
           v-model="formData.areas.val"
+          @blur="clearValidity('areas')"
         />
-        <label for="career">Career</label>
+        <label for="reading">Reading</label>
       </div>
       <p v-if="!formData.areas.isValid">areas must not be empty..</p>
     </div>
@@ -79,6 +85,7 @@ export default {
         firstName: {
           val: "",
           isValid: true,
+          required: true,
         },
         lastName: {
           val: "",
@@ -93,15 +100,14 @@ export default {
           val: [],
           isValid: true,
         },
-        },
+      },
       formIsValid: true,
     };
   },
   methods: {
-    // clearValidity(input) {
-    //   // console.log(input);
-    //   this[input].isValid=true;
-    // },
+    clearValidity(input) {
+      this.formData[input].isValid = true;
+    },
     formValidate() {
       this.formIsValid = true;
       if (this.formData.firstName.val === "") {
@@ -123,13 +129,13 @@ export default {
       }
     },
     submitForm() {
-      //  this.formValidate();
-      this.$emit("update:formNew", this.formData);
-      // if(!this.formIsValid){
-      //     return false;
-      // }else{
-      //   return form_data;
-      // }
+      this.formValidate();
+      if (!this.formIsValid) {
+        return false;
+      } else {
+        this.$emit("update:formNew", this.formData);
+        return this.formData;
+      }
     },
   },
 };
@@ -152,6 +158,12 @@ input[type="checkbox"] + label {
   font-weight: normal;
   display: inline;
   margin: 0 0 0 0.5rem;
+}
+input[type="radio"] + label {
+  font-weight: normal;
+  display: inline;
+  margin: 0 0 0 0.5rem;
+  padding: 0px;
 }
 
 input,
