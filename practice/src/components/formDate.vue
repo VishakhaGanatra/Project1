@@ -8,7 +8,7 @@
       <input
         type="number"
         id="number"
-        v-model="formdata.enteredvalue.val"
+        v-model.trim="formdata.enteredvalue.val"
         @blur="clearValidity('enteredvalue')"
       />
 
@@ -22,7 +22,7 @@
       <input
         type="number"
         id="number"
-        v-model="formdata.enterednumber.val"
+        v-model.trim="formdata.enterednumber.val"
         @blur="clearValidity('enterednumber')"
       />
       <p v-if="!formdata.enterednumber.isValid">this must not be empty..</p>
@@ -35,7 +35,7 @@
       <input
         type="email"
         id="email"
-        v-model="formdata.enteredemail.val"
+        v-model.trim="formdata.enteredemail.val"
         @blur="clearValidity('enteredemail')"
       />
       <p v-if="!formdata.enteredemail.isValid">this must not be empty..</p>

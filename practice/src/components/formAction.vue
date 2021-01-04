@@ -8,7 +8,7 @@
       <input
         type="text"
         id="firstname"
-        v-model="formdata.enteredname.val"
+        v-model.trim="formdata.enteredname.val"
         @blur="clearValidity('enteredname')"
       />
       <p v-if="!formdata.enteredname.isValid">
@@ -23,7 +23,7 @@
       <input
         type="text"
         id="name"
-        v-model="formdata.enteredvalue.val"
+        v-model.trim="formdata.enteredvalue.val"
         @blur="clearValidity('enteredvalue')"
       />
       <p v-if="!formdata.enteredvalue.isValid">
@@ -38,7 +38,7 @@
       <input
         type="email"
         id="email"
-        v-model="formdata.enteredemail.val"
+        v-model.trim="formdata.enteredemail.val"
         @blur="clearValidity('enteredemail')"
       />
       <p v-if="!formdata.enteredemail.isValid">
@@ -52,7 +52,7 @@
           type="checkbox"
           id="frontend"
           value="frontend"
-          v-model="formdata.areas.val"
+          v-model.trim="formdata.areas.val"
           @blur="clearValidity('areas')"
         />
         <label for="dancing"> Frontend </label>
@@ -62,7 +62,7 @@
           type="checkbox"
           id="backend"
           value="backend"
-          v-model="formdata.areas.val"
+          v-model.trim="formdata.areas.val"
           @blur="clearValidity('areas')"
         />
         <label for="backend">Backend </label>
@@ -73,7 +73,7 @@
           type="checkbox"
           id="fullstack"
           value="fullstack"
-          v-model="formdata.areas.val"
+          v-model.trim="formdata.areas.val"
           @blur="clearValidity('areas')"
         />
         <label for="fullstack">FullStack</label>
