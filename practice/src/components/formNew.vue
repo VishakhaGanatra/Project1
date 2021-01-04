@@ -2,7 +2,7 @@
   <form>
     <div class="form-control" :class="{ invalid: !formData.firstName.isValid }">
       <label for="FirstName">FirstName</label>
-      <input
+      <input                                                                                                                        
         type="text"
         id="FirstName"
         v-model.trim="formData.firstName.val"
