@@ -2,13 +2,19 @@
   <li>
     <h3>{{ name }}</h3>
     <div class="team-members">{{ memberCount }} Members</div>
-    <router-link :to="'/teams/' + id">View Members</router-link>
+    <router-link :to="teamMemberLink">View Members</router-link>
   </li>
 </template>
 
 <script>
 export default {
   props: ['id','name', 'memberCount'],
+  computed:{
+    teamMemberLink(){
+      //return '/teams/' + this.id;     when you have change in index.js like teams to team then you have to also change path here .. that is not right way.
+      return{name:'team-member',params:{teamID:this.id}};
+    }
+  }
 };
 </script>
 
