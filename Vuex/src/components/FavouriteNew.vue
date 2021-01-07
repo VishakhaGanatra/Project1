@@ -1,0 +1,18 @@
+<!-- Getters  & mapper-->
+<template>
+
+<h2>{{finalcounter}}</h2>
+</template>
+
+<script>
+import { mapGetters } from 'vuex';
+export default{  
+    
+    computed: {
+        //   counter(){
+        //       return this.$store.getters.Normal;
+        //   }
+        ...mapGetters('numbers',['finalcounter'])
+        },
+};
+</script>  
