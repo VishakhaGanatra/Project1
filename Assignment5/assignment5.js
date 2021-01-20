@@ -9,7 +9,7 @@ Vue.createApp({
     methods:{
         addgoal(){
             this.goals.push(this.entervalue);
-            entervalue=''
+            this.entervalue=''
         },
         showhide(){
             this.visible=!this.visible;

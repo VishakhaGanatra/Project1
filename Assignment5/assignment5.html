@@ -16,7 +16,7 @@
             <ul v-if="visible">
             <li v-for="goal in goals">{{ goal  }}</li><br><br>
             </ul>
-                <button @click="showhide">SHOW/HIDE</button>
+                <button @click="showhide"> {{visible ? 'hide' : 'show'}} details</button>
         
 
             </div>
