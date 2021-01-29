@@ -8,7 +8,7 @@
 </b-form-input>
 <br>
 </b-col>
-</b-row>
+</b-row> 
 <b-row>
 <b-col>
 <b-table striped hover :items="posts" :filter="filter" 

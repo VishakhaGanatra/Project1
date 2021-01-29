@@ -3,7 +3,7 @@
 <employee-new :posts="posts"></employee-new>
 
 </div>
-</template>
+</template> 
 
 
 <script>
