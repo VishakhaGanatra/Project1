@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import EmployeeNew from '../components/EmployeeNew.vue';
+import EmployeeDetails from '../components/employeeDetails.vue';
 import Index from '../components/Index.vue';
-
+//import FormNew from '../components/FormNew.vue';
 
 Vue.use(VueRouter)
 
 const routes = [
-  { path:'/',component: Index , children: [{ path:'/' , component:EmployeeNew}]},
+  { path:'/',component: Index , children: [{ path:'/' , component:EmployeeDetails}]},
    
 ]
 

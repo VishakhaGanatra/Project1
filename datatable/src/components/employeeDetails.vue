@@ -23,7 +23,7 @@ export default{
        this.posts.push(res.data[key])
      })
     })
-    
+  
   },
   // methods:{
   //   submitData(){
